@@ -1,6 +1,5 @@
-import { SignUp } from "@clerk/nextjs";
 const Page = () => {
-  return <SignUp/>;
+  return <h1 className="h1-bold">sign page</h1>;
 };
 
 export default Page;
