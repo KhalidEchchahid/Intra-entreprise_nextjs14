@@ -18,7 +18,7 @@ const NaveBar = () => {
         />
 
         <p className="h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900 max-sm:hidden">
-          ILISI <span className="text-primary-500">INVTEC</span>{" "}
+          ILISI <span className="text-primary-500">INNOVTECH</span>{" "}
         </p>
       </Link>
       <GlobalSearch />

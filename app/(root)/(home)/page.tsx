@@ -5,46 +5,15 @@ import HomeFilters from "@/components/shared/home/HomeFilters";
 import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
+import { getQuestions } from "@/lib/actions/question.action";
 import Link from "next/link";
 
-const questions = [
-  {
-    _id: "1",
-    title: "Redux Toolkit Not Updating State as Expected",
-    tags: [
-      { _id: "1", name: "nextjs" },
-      { _id: "2", name: "react" },
-    ],
-    author: {
-      _id: "1",
-      name: "khalid echchahid",
-      picture: "/assets/images/profile.jpeg",
-    },
-    upvotes: 58925468,
-    views: 108448005,
-    awnsers: [],
-    createdAt: new Date("2023-09-01T12:00:00.000Z"),
-  },
-  {
-    _id: "2",
-    title: "Redux Toolkit Not Updating State as Expected",
-    tags: [
-      { _id: "1", name: "nextjs" },
-      { _id: "2", name: "react" },
-    ],
-    author: {
-      _id: "1",
-      name: "khalid echchahid",
-      picture: "/assets/images/profile.jpeg",
-    },
-    upvotes: 10,
-    views: 100,
-    awnsers: [],
-    createdAt: new Date("2021-09-01T12:00:00.000Z"),
-  },
-];
 
-export default function Home() {
+
+export default async function Home() {
+
+  const result = await getQuestions({});
+  
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -72,8 +41,8 @@ export default function Home() {
       </div>
       <HomeFilters />
       <div className="mt-10 flex w-full flex-col gap-6 ">
-        {questions.length > 0 ? (
-          questions.map((question) => (
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}
@@ -83,7 +52,7 @@ export default function Home() {
               upvotes={question.upvotes}
               views={question.views}
               createdAt={question.createdAt}
-              awnsers={question.awnsers}
+              awnsers={question.answers}
             />
           ))
         ) : (

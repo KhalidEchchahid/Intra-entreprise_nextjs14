@@ -6,6 +6,20 @@ export const themes = [
   { value: "system", label: "System", icon: "/assets/icons/computer.svg" },
 ];
 
+export const dashboardNavbarLinks = [
+  {
+    route: "/dashboard/users",
+    label: "Users",
+  },
+  {
+    route: "/dashboard/skills",
+    label: "Skills",
+  },
+  {
+    route: "/dashboard/categories",
+    label: "Categories",
+  },
+];
 export const sidebarLinks: SidebarLink[] = [
   {
     imgURL: "/assets/icons/home.svg",
@@ -22,11 +36,11 @@ export const sidebarLinks: SidebarLink[] = [
     route: "/collection",
     label: "Collections",
   },
-  {
-    imgURL: "/assets/icons/suitcase.svg",
-    route: "/jobs",
-    label: "Find Jobs",
-  },
+  // {
+  //   imgURL: "/assets/icons/suitcase.svg",
+  //   route: "/jobs",
+  //   label: "Find Jobs",
+  // },
   {
     imgURL: "/assets/icons/tag.svg",
     route: "/tags",
@@ -41,6 +55,11 @@ export const sidebarLinks: SidebarLink[] = [
     imgURL: "/assets/icons/question.svg",
     route: "/ask-question",
     label: "Ask a question",
+  },
+  {
+    imgURL: "/assets/icons/laptop.svg",
+    route: "/dashboard/users",
+    label: "Dashboard",
   },
 ];
 
