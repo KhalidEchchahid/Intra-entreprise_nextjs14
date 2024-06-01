@@ -9,6 +9,8 @@ import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 const Sidebar = () => {
   const {data : session } = useSession();
+  
+  //@ts-ignore
   const userId = session?.user?._id  ;
   console.log(userId);
     

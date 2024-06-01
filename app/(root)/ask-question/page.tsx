@@ -9,6 +9,7 @@ const Page = async () => {
 
    // I should get the userId from my session 
    const  session  = await getServerSession(authOptions);
+   //@ts-ignore
    const userId = session?.user?._id;
 
   if(!userId) redirect('/sign-in');

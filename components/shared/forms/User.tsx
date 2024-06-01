@@ -1,6 +1,4 @@
 "use client";
-import { useRef, useState } from "react";
-import { Editor } from "@tinymce/tinymce-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -19,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { UserShema } from "@/lib/validations";
 import { usePathname, useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/user.action";
+import { useState } from "react";
 
 const User = () => {
   const pathname = usePathname();
@@ -49,7 +48,7 @@ const User = () => {
       });
 
       //navigate to users page
-      router.push("/dashboard/users");
+      router.push("/admin/users");
     } catch (error) {
     } finally {
       setIsSumitting(false);

@@ -9,12 +9,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { getAllUsers } from "@/lib/actions/user.action";
+import { getAllUsersAdmin } from "@/lib/actions/user.action";
 import { getTimeStamp } from "@/lib/utils";
 import Link from "next/link";
 
 const UserTable = async () => {
-  const result = await getAllUsers();
+  const result = await getAllUsersAdmin();
   return (
     <Table>
       <TableHeader className="bg-slate-200 text-lg">

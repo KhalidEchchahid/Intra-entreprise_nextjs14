@@ -5,13 +5,16 @@ import { ParamsProps } from "@/types";
 import { getServerSession } from "next-auth";
 import React from "react";
 
-const page = async({params}: ParamsProps) => {
-    const session = getServerSession(authOptions);
-    const userId = session?.user?._id ;
-    if(!userId)return null ;
+const page = async ({ params }: ParamsProps) => {
+  const session = await getServerSession(authOptions);
 
-    const mongoUser = await getUserById({userId});
-    
+  // @ts-ignore
+  const userId = session?.user?._id;
+
+  if (!userId) return null;
+
+  const mongoUser = await getUserById({ userId });
+
   return (
     <>
       <h1 className="h1-bold text-dark100_light900">Edit Profile</h1>
@@ -20,7 +23,6 @@ const page = async({params}: ParamsProps) => {
         userId = {userId}
         user = {JSON.stringify(mongoUser)}
         />
-
       </div>
     </>
   );

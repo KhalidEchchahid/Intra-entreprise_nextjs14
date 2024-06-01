@@ -1,3 +1,4 @@
+import Level from "@/database/level.model";
 import { z } from "zod";
 
 export const QuestionsShema = z.object({
@@ -12,3 +13,42 @@ export const UserShema = z.object({
   password: z.string().min(8).max(20),
   repeatedPassword: z.string().min(8).max(20),
 });
+
+export const AnswerSchema = z.object({
+  answer: z.string().min(100)
+})
+
+export const ProfileSchema = z.object({
+  name: z.string().min(5).max(50),
+  userName: z.string().min(5).max(50),
+  bio: z.string().min(10).max(300),
+  portfolioWebsite: z.string().url().min(0),
+  location: z.string().min(0).max(50),
+});
+
+export const SkillSchema = z.object({
+  name: z.string().min(1).max(20),
+})
+
+export const LevelSchema = z.object({
+  name: z.string().min(1).max(20),
+})
+
+export const ProjectShema = z.object({
+  title: z.string().min(5).max(40),
+  description: z.string().min(10).max(300),
+});
+
+export const CategorieSchema = z.object({
+  name: z.string().min(1).max(30),
+})
+
+
+export const RoleSchema = z.object({
+  name: z.string().min(1).max(30),
+})
+
+export const SkillLevelSchema = z.object({
+  skill: z.string(),
+  level: z.string(),
+})

@@ -20,6 +20,11 @@ export const dashboardNavbarLinks = [
     label: "Categories",
   },
 ];
+
+
+
+
+
 export const sidebarLinks: SidebarLink[] = [
   {
     imgURL: "/assets/icons/home.svg",
@@ -36,6 +41,11 @@ export const sidebarLinks: SidebarLink[] = [
     route: "/collection",
     label: "Collections",
   },
+  // {
+  //   imgURL: "/assets/images/announcement-svgrepo-com.svg",
+  //   route: "/announcement",
+  //   label: "Announcement",
+  // },
   // {
   //   imgURL: "/assets/icons/suitcase.svg",
   //   route: "/jobs",
@@ -55,11 +65,6 @@ export const sidebarLinks: SidebarLink[] = [
     imgURL: "/assets/icons/question.svg",
     route: "/ask-question",
     label: "Ask a question",
-  },
-  {
-    imgURL: "/assets/icons/laptop.svg",
-    route: "/dashboard/users",
-    label: "Dashboard",
   },
 ];
 
@@ -91,3 +96,35 @@ export const sidebarLinks: SidebarLink[] = [
 //             GOLD: 100000,
 //             },
 //             };
+
+
+
+
+export const adminSidebarLinks: SidebarLink[] = [
+  {
+    imgURL: "/assets/icons/home.svg",
+    route: "/admin",
+    label: "Main Dashboard",
+  },
+  {
+    imgURL: "/assets/icons/users.svg",
+    route: "/admin/users",
+    label: "users",
+  },
+  {
+    imgURL: "/assets/icons/star.svg",
+    route: "/admin/skills",
+    label: "Skills",
+  },
+  {
+    imgURL: "/assets/icons/tag.svg",
+    route: "/admin/projects",
+    label: "Projects",
+  },
+  {
+    imgURL: "/assets/icons/star.svg",
+    route: "/admin/categories",
+    label: "Categories",
+  },
+  
+];

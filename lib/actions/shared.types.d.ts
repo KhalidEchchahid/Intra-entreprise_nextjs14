@@ -1,6 +1,32 @@
 import { IUser } from "@/database/user.model";
 import { Schema } from "mongoose";
 
+
+
+interface UpdateUserSkillsParams {
+  path: string;
+  userId: string;
+  skill:string;
+  level: string
+}
+interface UpdateUserProjectsParams {
+  path: string;
+  userId: string;
+  project:string;
+  role: string
+}
+
+export interface CreateProjectParams {
+  title: string;
+  description: string;
+  path: string;
+}
+
+export interface CreateSkillParams {
+  name: string;
+  path: string;
+}
+
 export interface GetQuestionsParams {
   page?: number;
   pagesizwe?: number;
@@ -117,7 +143,7 @@ export interface GetAllUsersParams {
   searchQuery?: string; // Add searchQuery parameter
 }
 export interface UpdateUserParams {
-  clerkId: string;
+  userId: string;
   updateData: Partial<IUser>;
   path: string;
 }
@@ -127,7 +153,7 @@ export interface ToggleSaveQuestionParams {
   path: string;
 }
 export interface GetSavedQuestionsParams {
-  clerkId: string;
+  userId: string;
   page?: number;
   pageSize?: number;
   filter?: string;
