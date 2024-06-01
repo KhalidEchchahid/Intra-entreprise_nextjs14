@@ -52,3 +52,14 @@ export const SkillLevelSchema = z.object({
   skill: z.string(),
   level: z.string(),
 })
+
+
+export const eventFormSchema = z.object({
+  title: z.string().min(3),
+  description: z.string().min(3),
+  instructor: z.string().min(3),
+  imageUrl: z.string(),
+  startDateTime: z.date(),
+  endDateTime: z.date(),
+  url: z.string().url()
+})

@@ -65,7 +65,6 @@ export const authOptions: NextAuthOptions = {
           role: u.role,
         };
       }
-      console.log("this is the token = ", token);
       return token;
     },
 

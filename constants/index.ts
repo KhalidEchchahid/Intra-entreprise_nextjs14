@@ -62,6 +62,11 @@ export const sidebarLinks: SidebarLink[] = [
     label: "Profile",
   },
   {
+    imgURL: "/assets/icons/eye.svg",
+    route: "/events",
+    label: "Events",
+  },
+  {
     imgURL: "/assets/icons/question.svg",
     route: "/ask-question",
     label: "Ask a question",
@@ -128,3 +133,14 @@ export const adminSidebarLinks: SidebarLink[] = [
   },
   
 ];
+
+
+export const eventDefaultValues = {
+  title: '',
+  description: '',
+  instructor: '',
+  imageUrl: '',
+  startDateTime: new Date(),
+  endDateTime: new Date(),
+  url: '',
+}
