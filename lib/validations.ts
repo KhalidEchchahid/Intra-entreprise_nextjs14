@@ -63,3 +63,10 @@ export const eventFormSchema = z.object({
   endDateTime: z.date(),
   url: z.string().url()
 })
+
+// Define the Zod schema for the Blog document
+export const blogFormSchema = z.object({
+  title: z.string().min(3),
+  description: z.string().min(200),
+  tags: z.string().min(1).max(15),
+});

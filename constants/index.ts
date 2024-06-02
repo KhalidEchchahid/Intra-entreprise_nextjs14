@@ -67,6 +67,11 @@ export const sidebarLinks: SidebarLink[] = [
     label: "Events",
   },
   {
+    imgURL: "/assets/icons/eye.svg",
+    route: "/blog",
+    label: "Blogs",
+  },
+  {
     imgURL: "/assets/icons/question.svg",
     route: "/ask-question",
     label: "Ask a question",

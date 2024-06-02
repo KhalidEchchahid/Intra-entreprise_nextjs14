@@ -1,10 +1,7 @@
 import Collection from '@/components/shared/Collection'
 import Search from '@/components/shared/Search'; 
-import { Button } from '@/components/ui/button'
 import { getAllEvents } from '@/lib/actions/event.actions';
 import { SearchParamProps } from '@/types';
-import Image from 'next/image'
-import Link from 'next/link'
 
 export default async function EventPage({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
