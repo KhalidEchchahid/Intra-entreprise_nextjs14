@@ -12,7 +12,6 @@ const Sidebar = () => {
 
   //@ts-ignore
   const userId = session?.user?._id;
-  console.log(userId);
 
   const pathname = usePathname();
   return (

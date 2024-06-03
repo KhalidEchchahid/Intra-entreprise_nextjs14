@@ -54,6 +54,17 @@ export const SkillLevelSchema = z.object({
 })
 
 
+<<<<<<< event-branch
+export const eventFormSchema = z.object({
+  title: z.string().min(3),
+  description: z.string().min(3),
+  instructor: z.string().min(3),
+  imageUrl: z.string(),
+  startDateTime: z.date(),
+  endDateTime: z.date(),
+  url: z.string().url()
+})
+=======
 export const ProjectRoleSchema = z.object({
   project: z.string(),
   role: z.string(),
@@ -66,3 +77,4 @@ export const AnnoucementFormSchema = z.object({
   url: z.string().url(),
   project: z.string(),
 })
+>>>>>>> main

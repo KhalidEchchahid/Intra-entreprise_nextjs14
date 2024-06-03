@@ -53,4 +53,8 @@ export function FileUploader({ imageUrl, onFieldChange, setFiles }: FileUploader
       )}
     </div>
   )
+<<<<<<< event-branch
 }
+=======
+}
+>>>>>>> main
