@@ -1,29 +1,8 @@
+import { getLatestAnnouncements } from "@/lib/actions/announcement.action";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const LatestAnnouncements = [
-  {
-    _id: '1',
-    title:
-      "On sait depuis longtemps que travailler avec du texte lisible et contenan",
-  },
-  {
-    _id: '2',
-    title:
-      "Le Lorem Ipsum est le faux texte standard de limprimerie depuis les années 1500, quand un imprimeur anonyme assembla",
-  },
-  {
-    _id: '3',
-    title:
-      "On sait depuis longtemps que travailler avec du texte lisible et contenan",
-  },
-  {
-    _id: '4',
-    title:
-      "Contrairement à une opinion répandue, le Lorem Ipsum nest pas simplement du texte aléatoire",
-  },
-];
 
 const topEvents = [
   { _id: '1', theme: "De Finibus Bonorum et Malorum", registredUsers: 25 },
@@ -36,15 +15,18 @@ const topEvents = [
   },
   { _id: '5', theme: "De Finibus Bonorum et Malorum", registredUsers: 4 },
 ];
-const RightSidebar = () => {
+const RightSidebar = async () => {
+  const { announcements } = await getLatestAnnouncements();
+  console.log(announcements);
+  
   return (
     <section className="background-light900_dark200 light-border sticky right-0 top-0 flex h-screen flex-col  overflow-y-auto border-l p-6 pt-36 shadow-light-300 dark:shadow-none max-xl:hidden w-[350px] custom-scrollbar">
       <div>
         <h3 className="h3-bold text-dark200_light900">Latest Announcements</h3>
         <div className="mt-7 flex w-full flex-col gap-[30px]">
-          {LatestAnnouncements.map((item) => (
+          {announcements.map((item : any) => (
             <Link
-              href={`/announcements/${item._id}`}
+              href={`/announcement`}
               key={item._id}
               className="flex cursor-pointer items-centre justify-between gap-7"
             >

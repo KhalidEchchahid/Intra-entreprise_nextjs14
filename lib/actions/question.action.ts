@@ -12,6 +12,7 @@ import {
 import User from "@/database/user.model";
 import { revalidatePath } from "next/cache";
 import { FilterQuery } from "mongoose";
+
 export async function getQuestions(params: GetQuestionsParams) {
   try {
     connectToDatabase();

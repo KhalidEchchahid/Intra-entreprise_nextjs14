@@ -54,6 +54,7 @@ export const SkillLevelSchema = z.object({
 })
 
 
+<<<<<<< event-branch
 export const eventFormSchema = z.object({
   title: z.string().min(3),
   description: z.string().min(3),
@@ -63,3 +64,17 @@ export const eventFormSchema = z.object({
   endDateTime: z.date(),
   url: z.string().url()
 })
+=======
+export const ProjectRoleSchema = z.object({
+  project: z.string(),
+  role: z.string(),
+})
+
+export const AnnoucementFormSchema = z.object({
+  title: z.string().min(3, 'Title must be at least 3 characters'),
+  content: z.string().min(3, 'Description must be at least 3 characters').max(400, 'Description must be less than 400 characters'),
+  imageUrl: z.string(),
+  url: z.string().url(),
+  project: z.string(),
+})
+>>>>>>> main

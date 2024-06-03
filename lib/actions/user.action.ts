@@ -18,10 +18,10 @@ import {
 } from "./shared.types";
 import Question from "@/database/question.model";
 import Tag from "@/database/tag.model";
-import { Select } from "@radix-ui/react-select";
 import Skill from "@/database/skill.model";
 import Level from "@/database/level.model";
-import { Regex } from "lucide-react";
+import Project from "@/database/project.model";
+import Role from "@/database/role.model";
 
 export async function getUserInfo(params: GetUserByIdParams) {
   try {
@@ -336,19 +336,19 @@ export async function updateUserProjects(params: UpdateUserProjectsParams) {
     connectToDatabase();
     const { userId, project, role, path } = params;
 
-    const userskill = await Skill.findById(skill);
-    console.log({ userskill });
+    const userProject = await Project.findById(project);
 
-    const userlevel = await Level.findById(level);
-    console.log({ userlevel });
+
+    const userRole = await Role.findById(role);
+
 
     const updatedUser = await User.findByIdAndUpdate(
       userId,
       {
         $push: {
-          skills: {
-            skill: userskill,
-            level: userlevel,
+          projects: {
+            project: userProject,
+            role: userRole,
           },
         },
       },
@@ -364,6 +364,28 @@ export async function updateUserProjects(params: UpdateUserProjectsParams) {
     revalidatePath(path);
 
     revalidatePath(path);
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+export async function getUserProjects(params: GetUserByIdParams) {
+  try {
+    await connectToDatabase();
+    const { userId } = params;
+    const user = await User.findById(userId)
+      .populate("projects.project")
+      .populate("projects.role")
+      .exec();
+
+    console.log(user);
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    return { projects: user.projects };
   } catch (error) {
     console.log(error);
     throw error;

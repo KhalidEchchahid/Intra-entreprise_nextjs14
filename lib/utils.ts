@@ -114,6 +114,7 @@ export const removeKeysFromQuery = ({
   );
 };
 
+<<<<<<< event-branch
 
 export const handleError = (error: unknown) => {
   console.error(error)
@@ -157,4 +158,6 @@ export const formatDateTime = (dateString: Date) => {
   }
 }
 
+=======
+>>>>>>> main
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file)

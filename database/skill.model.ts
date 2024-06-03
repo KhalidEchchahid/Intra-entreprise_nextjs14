@@ -1,15 +1,15 @@
 import { Schema , model , models , Document  } from "mongoose";
 
-export interface IRole extends Document {
+export interface ISkill extends Document {
   name: string;
   createdOn: Date;
 }
 
-const RoleSchema = new Schema({
+const SkillSchema = new Schema({
   name: { type: String, required: true , unique: true },
   createdOn: { type: Date, default: Date.now },
 });
 
-const Role = models.Role || model('Role', RoleSchema);
+const Skill = models.Skill || model('Skill', SkillSchema);
 
-export default Role;
+export default Skill;

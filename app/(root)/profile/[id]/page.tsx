@@ -14,6 +14,11 @@ import UserSkills from "@/components/shared/UserSkills";
 import AddSkill from "@/components/shared/AddSkill";
 import { getAllSkills } from "@/lib/actions/skill.action";
 import { getAllLevels } from "@/lib/actions/level.action";
+import AddProject from "@/components/shared/forms/AddProject";
+import { getAllRols } from "@/lib/actions/role.action";
+import { getAllProjects } from "@/lib/actions/project.action";
+import UserProjects from "@/components/shared/UserProjects";
+import { ScrollArea } from "@/components/ui/scroll-area";
 const testDate = new Date(2024, 3);
 const Page = async ({ params, searchParams }: URLProps) => {
   const session = await getServerSession(authOptions);
@@ -26,8 +31,8 @@ const Page = async ({ params, searchParams }: URLProps) => {
 
   const { skills: allSkills } = await getAllSkills();
   const { levels: allLevels } = await getAllLevels();
-
-
+  const { roles: allRoles } = await getAllRols();
+  const { projects: allProjects } = await getAllProjects();
 
   return (
     <>
@@ -86,6 +91,36 @@ const Page = async ({ params, searchParams }: URLProps) => {
         totalTrainning={0}
         totalKnowlegde={3}
       />
+      <div className="flex">
+        <div>
+          <div className="flex justify-between space-x-12 max-sm:mb-5 max-sm:w-full sm:mt-10 px-5">
+            <h2 className="text-xl font-semibold mt-2 ">Skills</h2>
+            <AddSkill
+              userId={userId}
+              userInfoId={JSON.stringify(userInfo.user._id)}
+              skills={JSON.stringify(allSkills)}
+              levels={JSON.stringify(allLevels)}
+            />
+          </div>
+          <ScrollArea className="h-80">
+            <UserSkills userId={params.id} />
+          </ScrollArea>
+        </div>
+        <div>
+          <div className="flex justify-between space-x-12 max-sm:mb-5 max-sm:w-full sm:mt-10 px-5">
+            <h2 className="text-xl font-semibold mt-2 ">Projects</h2>
+            <AddProject
+              userId={userId}
+              userInfoId={JSON.stringify(userInfo.user._id)}
+              projects={JSON.stringify(allProjects)}
+              roles={JSON.stringify(allRoles)}
+            />
+          </div>
+          <ScrollArea className="h-80">
+            <UserProjects userId={params.id} />
+          </ScrollArea>
+        </div>
+      </div>
       <div className="mt-10 flex justify-between gap-4">
         <div className="mt-10 flex gap-10">
           <Tabs defaultValue="top-posts" className="flex-1">
@@ -112,13 +147,6 @@ const Page = async ({ params, searchParams }: URLProps) => {
             <TabsContent value="trainning">trainning</TabsContent>
             <TabsContent value="knowlegde">knowlegde</TabsContent>
           </Tabs>
-        </div>
-        <div >
-        <div className="flex justify-between space-x-12 max-sm:mb-5 max-sm:w-full sm:mt-10 px-5">
-          <h2 className="text-xl font-semibold mt-2 ">Skills</h2>
-          <AddSkill userId={userId} userInfoId={JSON.stringify(userInfo.user._id)}  skills = {JSON.stringify(allSkills)} levels= {JSON.stringify(allLevels)}/>
-        </div>
-          <UserSkills userId={params.id}/>
         </div>
       </div>
     </>
