@@ -41,16 +41,16 @@ export const sidebarLinks: SidebarLink[] = [
     route: "/collection",
     label: "Collections",
   },
-  // {
-  //   imgURL: "/assets/images/announcement-svgrepo-com.svg",
-  //   route: "/announcement",
-  //   label: "Announcement",
-  // },
-  // {
-  //   imgURL: "/assets/icons/suitcase.svg",
-  //   route: "/jobs",
-  //   label: "Find Jobs",
-  // },
+  {
+    imgURL: "/assets/icons/announcement.svg",
+    route: "/announcement",
+    label: "Announcement",
+  },
+  {
+    imgURL: "/assets/icons/trainning.svg",
+    route: "/trainning",
+    label: "Trainning",
+  },
   {
     imgURL: "/assets/icons/tag.svg",
     route: "/tags",

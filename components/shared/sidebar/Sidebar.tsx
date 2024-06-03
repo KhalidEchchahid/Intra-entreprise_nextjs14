@@ -42,7 +42,7 @@ const Sidebar = () => {
               } flex items-center justify-start gap-4 bg-transparent p-4`}
             >
               <Image
-                className={`${isActive ? "" : "invert-colors"}`}
+                className={`${ isActive || item.route === '/announcement' || item.route === '/trainning' ? "" : "invert-colors"}  `}
                 src={item.imgURL}
                 alt={item.label}
                 width={20}

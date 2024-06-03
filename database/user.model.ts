@@ -34,7 +34,6 @@ const UserSchema = new Schema({
       level: { type: Schema.Types.ObjectId, ref: "Level", required: true }
     }
   ],
-
   projects: [
     {
       project: { type: Schema.Types.ObjectId, ref: "Project", required: true },

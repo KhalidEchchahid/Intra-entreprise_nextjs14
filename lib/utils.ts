@@ -113,3 +113,5 @@ export const removeKeysFromQuery = ({
     }
   );
 };
+
+export const convertFileToUrl = (file: File) => URL.createObjectURL(file)
